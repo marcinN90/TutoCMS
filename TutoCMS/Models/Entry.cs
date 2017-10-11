@@ -1,4 +1,6 @@
-﻿namespace TutoCMS.Models
+﻿using System;
+
+namespace TutoCMS.Models
 {
     public class Entry
     {
@@ -6,6 +8,9 @@
         public string Title { get; set; }
         public string Content { get; set; }
         public int CategoryId { get; set; }
+        public DateTime? UpdatedOn { get; set; }
+
+
         public Category Category { get; set; }
     }
 }
