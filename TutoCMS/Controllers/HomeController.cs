@@ -5,14 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TutoCMS.Models;
+using TutoCMS.Repo;
+using TutoCMS.Models.ViewModels;
 
 namespace TutoCMS.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IDataRepository _dataRepo;
+        public HomeController(IDataRepository dataRepository)
         {
-            return View();
+            _dataRepo = dataRepository;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var allCategories = await _dataRepo.GetAllCategoriesAsync();
+            HomePageViewModel _homeModel = new HomePageViewModel();
+            _homeModel.Categories = allCategories;
+
+            return View(_homeModel);
         }
 
         public IActionResult Error()
