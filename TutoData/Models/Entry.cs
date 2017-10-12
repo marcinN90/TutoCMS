@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TutoData.Models
 {
-    class Entry
+    public class Entry
     {
         public int Id { get; set; }
         public string Title { get; set; }

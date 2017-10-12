@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Tuto.Models;
+using TutoData;
+using TutoData.Models;
 
-namespace Tuto.Repo
+namespace TutoServices
 {
-    public class FakeDataRepository : IDataRepository
+    public class FakeDataService : ITutoService
+
     {
         public static class FakeData
         {
