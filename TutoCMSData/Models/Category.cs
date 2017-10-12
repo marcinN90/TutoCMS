@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace TutoCMS.Models
+namespace TutoData.Models
 {
-    public class Category
+    class Category
     {
         public int Id { get; set; }
         public string Title { get; set; }

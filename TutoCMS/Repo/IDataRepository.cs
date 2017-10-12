@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TutoCMS.Models;
+using Tuto.Models;
 
-namespace TutoCMS.Repo
+namespace Tuto.Repo
 {
     public interface IDataRepository
     {

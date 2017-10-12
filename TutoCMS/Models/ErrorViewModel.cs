@@ -1,6 +1,6 @@
 using System;
 
-namespace TutoCMS.Models
+namespace Tuto.Models
 {
     public class ErrorViewModel
     {

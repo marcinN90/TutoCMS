@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TutoCMS.Models.ViewModels
+namespace Tuto.Models.ViewModels
 {
     public class HomePageViewModel
     {

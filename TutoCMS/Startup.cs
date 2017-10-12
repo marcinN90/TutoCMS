@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TutoCMS.Data;
-using TutoCMS.Models;
-using TutoCMS.Services;
-using TutoCMS.Repo;
+using Tuto.Data;
+using Tuto.Models;
+using Tuto.Services;
+using Tuto.Repo;
 
-namespace TutoCMS
+namespace Tuto
 {
     public class Startup
     {

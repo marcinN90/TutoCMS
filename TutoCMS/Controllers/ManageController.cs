@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using TutoCMS.Models;
-using TutoCMS.Models.ManageViewModels;
-using TutoCMS.Services;
+using Tuto.Models;
+using Tuto.Models.ManageViewModels;
+using Tuto.Services;
 
-namespace TutoCMS.Controllers
+namespace Tuto.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
@@ -495,7 +495,7 @@ namespace TutoCMS.Controllers
         {
             return string.Format(
                 AuthenicatorUriFormat,
-                _urlEncoder.Encode("TutoCMS"),
+                _urlEncoder.Encode("Tuto"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

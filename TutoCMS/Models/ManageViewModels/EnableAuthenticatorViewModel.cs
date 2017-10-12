@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TutoCMS.Models.ManageViewModels
+namespace Tuto.Models.ManageViewModels
 {
     public class EnableAuthenticatorViewModel
     {

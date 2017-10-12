@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TutoCMS.Services
+namespace Tuto.Services
 {
     public interface IEmailSender
     {

@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using TutoCMS.Models;
-using TutoCMS.Models.AccountViewModels;
-using TutoCMS.Services;
+using Tuto.Models;
+using Tuto.Models.AccountViewModels;
+using Tuto.Services;
 
-namespace TutoCMS.Controllers
+namespace Tuto.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using TutoCMS.Services;
+using Tuto.Services;
 
-namespace TutoCMS.Services
+namespace Tuto.Services
 {
     public static class EmailSenderExtensions
     {

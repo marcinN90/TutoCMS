@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TutoCMS.Models;
-using TutoCMS.Repo;
-using TutoCMS.Models.ViewModels;
+using Tuto.Models;
+using Tuto.Repo;
+using Tuto.Models.ViewModels;
 
-namespace TutoCMS.Controllers
+namespace Tuto.Controllers
 {
     public class HomeController : Controller
     {

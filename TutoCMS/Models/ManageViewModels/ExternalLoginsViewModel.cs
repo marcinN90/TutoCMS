@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
-namespace TutoCMS.Models.ManageViewModels
+namespace Tuto.Models.ManageViewModels
 {
     public class ExternalLoginsViewModel
     {
