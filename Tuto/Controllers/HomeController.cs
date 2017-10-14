@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Tuto.Models;
 using Tuto.Repo;
-using Tuto.Models.ViewModels;
 
 namespace Tuto.Controllers
 {
