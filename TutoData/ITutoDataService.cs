@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TutoData
 {
-    public interface ITutoService
+    public interface ITudoDataServce
     {
     }
 }

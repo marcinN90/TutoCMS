@@ -7,7 +7,7 @@ using TutoData.Models;
 
 namespace TutoServices
 {
-    public class FakeDataService : ITutoService
+    public class FakeDataService : ITudoDataServce
 
     {
         public static class FakeData

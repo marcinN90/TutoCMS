@@ -11,7 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Tuto.Data;
 using Tuto.Models;
 using Tuto.Services;
-using Tuto.Repo;
+using TutoData;
+using TutoServices;
 
 namespace Tuto
 {
@@ -38,6 +39,8 @@ namespace Tuto
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
+            services.AddScoped<ITudoDataServce, FakeTutoDataService>();
             
         }
 

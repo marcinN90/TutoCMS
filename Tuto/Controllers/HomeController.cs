@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Tuto.Models;
 using Tuto.Repo;
+using TutoData;
 
 namespace Tuto.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IDataRepository _dataRepo;
-        public HomeController(IDataRepository dataRepository)
+        public ITudoDataServce _dataService;
+        public HomeController(ITudoDataServce dataService)
         {
-            _dataRepo = dataRepository;
+            _dataService = dataService;
         }
 
         public async Task<IActionResult> Index()

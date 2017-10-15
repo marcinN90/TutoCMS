@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TutoData\TutoData.csproj" />
+    <ProjectReference Include="..\TutoServices\TutoServices.csproj" />
   </ItemGroup>
 
 </Project>
