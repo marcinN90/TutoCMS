@@ -6,7 +6,8 @@
 
 @foreach (var item in Model.Categories)
 {
-    <h3>@item.Title</h3>
+    @item.Title
+    <p>Części: @item.EntriesCounter</p>
     <ul>
         @foreach (var entry in item.Entires)
         {
