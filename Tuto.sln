@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutoServices", "TutoServices\TutoServices.csproj", "{8F788F61-A7F6-4218-9DBF-18666F10DDB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutoRepo", "TutoServices\TutoRepo.csproj", "{8F788F61-A7F6-4218-9DBF-18666F10DDB8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuto", "Tuto\Tuto.csproj", "{4DD5BC5E-5CBD-48DE-A1D3-15D682E7B51C}"
 EndProject

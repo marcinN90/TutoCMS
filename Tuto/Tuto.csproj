@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TutoData\TutoData.csproj" />
-    <ProjectReference Include="..\TutoServices\TutoServices.csproj" />
+    <ProjectReference Include="..\TutoServices\TutoRepo.csproj" />
   </ItemGroup>
 
 </Project>
