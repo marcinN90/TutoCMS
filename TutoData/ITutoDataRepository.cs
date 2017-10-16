@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using TutoData.Models;
 
-namespace TutoData
+namespace TutoDataRepo
 {
-    public interface ITudoDataServce
+    public interface ITudoDataRepository
     {
+        Task<List<Category>> GetAllCategories();
+        Category GetCategoryById(int id);
     }
 }

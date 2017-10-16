@@ -1,0 +1,11 @@
+﻿@model  Tuto.UI.Models.Home.HomePageModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@foreach (var item in Model.Categories)
+{
+    <h3>@item.Title</h3>
+}
+

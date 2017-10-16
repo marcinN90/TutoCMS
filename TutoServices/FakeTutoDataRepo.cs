@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TutoData;
 using TutoData.Models;
+using TutoDataRepo;
 
-namespace TutoServices
+namespace TutoRepo
 {
-    public class FakeTutoDataService : ITudoDataServce
+    public class FakeTutoDataRepo : ITudoDataRepository
     {
         public static class FakeData
         {
@@ -35,10 +35,11 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
                 new Entry { Id = 4, CategoryId = 1, Title = "Very awesome part 4", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
                 new Entry { Id = 5, CategoryId = 1, Title = "Very awesome part 5", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
                 new Entry { Id = 6, CategoryId = 1, Title = "Very awesome part 6", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
-
+                new Entry { Id = 7, CategoryId = 2, Title = "Very awesome part 5", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
+                new Entry { Id = 8, CategoryId = 2, Title = "Very awesome part 6", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
             };
         }
-        public Task<IEnumerable<Category>> GetAllCategoriesAsync()
+        public Task<List<Category>> GetAllCategories()
         {
             IEnumerable<Category> categories = new[]
             {
@@ -47,13 +48,25 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
                     Id = 1,
                     Title = "Awesome",
                     Description ="This is awesome cateogry for make more awesome courses.",
+                },
+                new Category
+                {
+                    Id = 2,
+                    Title = "Very Awesome",
+                    Description ="This is second awesome cateogry for make more awesome courses.",
                 }
             };
             foreach (var category in categories)
             {
                 category.Entries = FakeData.Entries.Where(x => x.CategoryId.Equals(category.Id)).ToList();
             }
-            return Task.FromResult(categories);
+            return Task.FromResult(categories.ToList());
+        }
+
+
+        public Category GetCategoryById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
