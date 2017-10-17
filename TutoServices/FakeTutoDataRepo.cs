@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TutoData.Models;
+using Tuto.Data.Models;
 using TutoDataRepo;
 
 namespace TutoRepo
@@ -67,6 +67,18 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
         public Category GetCategoryById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<WebsiteDetails> GetWebsiteDetails()
+        {
+            var webDetails = new WebsiteDetails
+            {
+                Title = "Awesome Course Titile",
+                ShortSeoDescription = "Awesome SEO Description for google",
+                Descritpiony = "Awesome description not only for google."
+            };
+
+            return Task.FromResult(webDetails);
         }
     }
 }

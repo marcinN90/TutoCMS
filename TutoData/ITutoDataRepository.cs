@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TutoData.Models;
+using Tuto.Data.Models;
 
 namespace TutoDataRepo
 {
@@ -10,5 +10,6 @@ namespace TutoDataRepo
     {
         Task<List<Category>> GetAllCategories();
         Category GetCategoryById(int id);
+        Task<WebsiteDetails> GetWebsiteDetails();
     }
 }

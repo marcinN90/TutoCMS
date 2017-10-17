@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TutoData.Models
+namespace Tuto.Data.Models
 {
     public class Category
     {

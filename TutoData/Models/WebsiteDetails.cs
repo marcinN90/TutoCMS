@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Tuto.Data.Models
 {
-    class WebsiteDetails
+    public class WebsiteDetails
     {
         public string Title { get; set; }
-        public string Descritpiony { get; set; }
+        public string Descritpion { get; set; }
         public string ShortSeoDescription { get; set; }
     }
 }

@@ -19,9 +19,15 @@ namespace Tuto.UI.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            var webDetails = await _dataRepo.GetWebsiteDetails();
             var categories = await _dataRepo.GetAllCategories();
          
             HomePageModel homeModel = new HomePageModel();
+
+            homeModel.Title = webDetails.Title;
+            homeModel.ShortSeoDescription = webDetails.ShortSeoDescription;
+            homeModel.Description = webDetails.Descritpion;
+
             homeModel.Categories = new List<Category>();
             foreach (var category in categories)
             {
@@ -31,8 +37,7 @@ namespace Tuto.UI.Controllers
                     entries.Add(new Entry
                     {
                         Id = entry.Id,
-                        Title = entry.Title,
-                        Content = entry.Content
+                        Title = entry.Title
                     });
                 }
 
