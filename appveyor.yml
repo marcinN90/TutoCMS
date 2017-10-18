@@ -6,4 +6,4 @@ before_build:
   - cmd: dotnet restore
   
 test_script:
-  - ps: dotnet test .\Drapper.Validation.Tests\Drapper.Validation.Tests.csproj  
+  - ps: dotnet test .\Tuto.Tests\Tuto.Tests.csproj  
