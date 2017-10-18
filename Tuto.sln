@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuto.Repo", "TutoServices\Tuto.Repo.csproj", "{8F788F61-A7F6-4218-9DBF-18666F10DDB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuto.Repo", "Tuto.Services\Tuto.Repo.csproj", "{8F788F61-A7F6-4218-9DBF-18666F10DDB8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuto.Data", "TutoData\Tuto.Data.csproj", "{58FDD7BD-C2FC-4688-B2D3-017759DD430D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuto.Data", "Tuto.Data\Tuto.Data.csproj", "{58FDD7BD-C2FC-4688-B2D3-017759DD430D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuto.UI", "Tuto.UI\Tuto.UI.csproj", "{C2FA8826-4E7B-4F6D-A059-73B9978A5025}"
 EndProject
