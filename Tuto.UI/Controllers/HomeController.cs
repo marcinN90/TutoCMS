@@ -20,13 +20,15 @@ namespace Tuto.UI.Controllers
         public async Task<IActionResult> Index()
         {
             var webDetails = await _dataRepo.GetWebsiteDetails();
+            var homePageSettings = await _dataRepo.GetHomePageSettings(); 
             var categories = await _dataRepo.GetAllCategories();
          
             HomePageModel homeModel = new HomePageModel();
 
-            homeModel.Title = webDetails.Title;
-            homeModel.ShortSeoDescription = webDetails.ShortSeoDescription;
-            homeModel.Description = webDetails.Descritpion;
+            homeModel.WebSiteTitle = webDetails.Title;
+            homeModel.HomePageTitle = homePageSettings.Title;
+            homeModel.SeoDescription = homePageSettings.SeoDescription;
+            homeModel.Description = homePageSettings.Descritpion;
 
             homeModel.Categories = new List<Category>();
             foreach (var category in categories)

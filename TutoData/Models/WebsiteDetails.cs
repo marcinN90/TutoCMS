@@ -7,7 +7,6 @@ namespace Tuto.Data.Models
     public class WebsiteDetails
     {
         public string Title { get; set; }
-        public string Descritpion { get; set; }
-        public string ShortSeoDescription { get; set; }
+        public string OwnerEmail { get; set; }
     }
 }

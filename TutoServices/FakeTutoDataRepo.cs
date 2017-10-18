@@ -7,11 +7,10 @@ using TutoDataRepo;
 
 namespace TutoRepo
 {
-    public class FakeTutoDataRepo : ITudoDataRepository
+    #region FakeData
+    public class FakeData
     {
-        public static class FakeData
-        {
-            public static string LoremIpsum = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras congue convallis urna, in mattis nisl convallis quis. 
+        public static string LoremIpsum = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras congue convallis urna, in mattis nisl convallis quis. 
                 Sed fringilla, odio et convallis lobortis, velit nulla ullamcorper purus, at bibendum eros sapien at ligula. Maecenas a dolor lectus. 
                 Nulla iaculis neque sed ornare sollicitudin. Vestibulum at lobortis nisl. Integer justo metus, bibendum eget tincidunt non, fringilla at libero. 
                 Aliquam tincidunt nulla vitae commodo molestie. Ut vitae finibus orci, ac lobortis tortor. 
@@ -27,38 +26,48 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
                 Aliquam eu mi dolor. In finibus rhoncus fringilla. Morbi commodo nulla vitae lobortis congue. 
                 Sed dui tellus, auctor vel est nec, vulputate condimentum felis.Morbi accumsan tempor porttitor.";
 
-            public static List<Entry> Entries = new List<Entry>
-            {
-                new Entry { Id = 1, CategoryId = 1, Title = "Very awesome part 1", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
-                new Entry { Id = 2, CategoryId = 1, Title = "Very awesome part 2", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
-                new Entry { Id = 3, CategoryId = 1, Title = "Very awesome part 3", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
-                new Entry { Id = 4, CategoryId = 1, Title = "Very awesome part 4", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
-                new Entry { Id = 5, CategoryId = 1, Title = "Very awesome part 5", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
-                new Entry { Id = 6, CategoryId = 1, Title = "Very awesome part 6", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
-                new Entry { Id = 7, CategoryId = 2, Title = "Very awesome part 5", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
-                new Entry { Id = 8, CategoryId = 2, Title = "Very awesome part 6", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
-            };
-        }
+        public List<Entry> Entries = new List<Entry>
+        {
+            new Entry { Id = 1, CategoryId = 1, Title = "Very awesome part 1", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
+            new Entry { Id = 2, CategoryId = 1, Title = "Very awesome part 2", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
+            new Entry { Id = 3, CategoryId = 1, Title = "Very awesome part 3", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
+            new Entry { Id = 4, CategoryId = 1, Title = "Very awesome part 4", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
+            new Entry { Id = 5, CategoryId = 1, Title = "Very awesome part 5", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
+            new Entry { Id = 6, CategoryId = 1, Title = "Very awesome part 6", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
+            new Entry { Id = 7, CategoryId = 2, Title = "Very awesome part 5", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
+            new Entry { Id = 8, CategoryId = 2, Title = "Very awesome part 6", Content = LoremIpsum.Substring(0, 300), UpdatedOn = DateTime.Now },
+        };
+
+        public List<Category> Categories = new List<Category>
+        {
+             new Category { Id = 1, Title = "Awesome", Description ="This is awesome cateogry for make more awesome courses."},
+             new Category  {Id = 2, Title = "Very Awesome",Description ="This is second awesome cateogry for make more awesome courses."}
+        };
+
+        public WebsiteDetails WebsiteDetails = new WebsiteDetails
+        {
+            Title = "WebsiteTtile",
+            OwnerEmail = "example@example.com"
+        };
+
+        public HomePageSettings HomePageSettings = new HomePageSettings()
+        {
+            Title = "HomeTitle",
+            SeoDescription = "Awesome SEO Description",
+            Descritpion = LoremIpsum.Substring(0, 500)
+        };
+    }
+    #endregion
+
+    public class FakeTutoDataRepo : ITudoDataRepository
+    {
+        FakeData fakeData = new FakeData();
         public Task<List<Category>> GetAllCategories()
         {
-            IEnumerable<Category> categories = new[]
-            {
-                new Category
-                {
-                    Id = 1,
-                    Title = "Awesome",
-                    Description ="This is awesome cateogry for make more awesome courses.",
-                },
-                new Category
-                {
-                    Id = 2,
-                    Title = "Very Awesome",
-                    Description ="This is second awesome cateogry for make more awesome courses.",
-                }
-            };
+            var categories = fakeData.Categories;
             foreach (var category in categories)
             {
-                category.Entries = FakeData.Entries.Where(x => x.CategoryId.Equals(category.Id)).ToList();
+                category.Entries = fakeData.Entries.Where(x => x.CategoryId.Equals(category.Id)).ToList();
             }
             return Task.FromResult(categories.ToList());
         }
@@ -69,16 +78,15 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
             throw new NotImplementedException();
         }
 
+        public Task<HomePageSettings> GetHomePageSettings()
+        {
+            return Task.FromResult(fakeData.HomePageSettings);
+        }
+
         public Task<WebsiteDetails> GetWebsiteDetails()
         {
-            var webDetails = new WebsiteDetails
-            {
-                Title = "Awesome Course Titile",
-                ShortSeoDescription = "Awesome SEO Description for google",
-                Descritpiony = "Awesome description not only for google."
-            };
-
-            return Task.FromResult(webDetails);
+            return Task.FromResult(fakeData.WebsiteDetails);
         }
+        
     }
 }

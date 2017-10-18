@@ -1,8 +1,10 @@
 ﻿@model  Tuto.UI.Models.Home.HomePageModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = Model.HomePageTitle + " - " + Model.WebSiteTitle;
+    ViewData["SeoDescription"] = Model.SeoDescription;
 }
-
+<h1>@Model.HomePageTitle</h1>
+<p>@Model.Description</p>
 
 @foreach (var item in Model.Categories)
 {

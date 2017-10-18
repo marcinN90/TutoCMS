@@ -11,5 +11,6 @@ namespace TutoDataRepo
         Task<List<Category>> GetAllCategories();
         Category GetCategoryById(int id);
         Task<WebsiteDetails> GetWebsiteDetails();
+        Task<HomePageSettings> GetHomePageSettings();
     }
 }

@@ -7,9 +7,10 @@ namespace Tuto.UI.Models.Home
 {
     public class HomePageModel
     {
-        public string Title { get; set; }
+        public string WebSiteTitle { get; set; }
+        public string HomePageTitle { get; set; }
         public string Description { get; set; }
-        public string ShortSeoDescription  { get; set; }
+        public string SeoDescription  { get; set; }
         public List<Category> Categories { get; set; }
     }
 }
