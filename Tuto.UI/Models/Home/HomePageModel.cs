@@ -11,6 +11,6 @@ namespace Tuto.UI.Models.Home
         public string HomePageTitle { get; set; }
         public string Description { get; set; }
         public string SeoDescription  { get; set; }
-        public List<Category> Categories { get; set; }
+        public List<CategoryDTO> Categories { get; set; }
     }
 }

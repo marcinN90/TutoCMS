@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace Tuto.UI.Models.Home
 {
-    public class Entry
+    public class CategoryDTO
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public int EntriesCounter { get; set; }
+        public List<EntryDTO> Entires { get; set; }
     }
 }

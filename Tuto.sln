@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuto.Repo", "TutoServices\T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuto.Data", "TutoData\Tuto.Data.csproj", "{58FDD7BD-C2FC-4688-B2D3-017759DD430D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuto.UI", "Tuto.UI\Tuto.UI.csproj", "{C2FA8826-4E7B-4F6D-A059-73B9978A5025}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuto.UI", "Tuto.UI\Tuto.UI.csproj", "{C2FA8826-4E7B-4F6D-A059-73B9978A5025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuto.Tests", "Tuto.Tests\Tuto.Tests.csproj", "{3D7FA2FE-7F80-4A51-995F-638C5F2CA350}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C2FA8826-4E7B-4F6D-A059-73B9978A5025}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2FA8826-4E7B-4F6D-A059-73B9978A5025}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2FA8826-4E7B-4F6D-A059-73B9978A5025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D7FA2FE-7F80-4A51-995F-638C5F2CA350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D7FA2FE-7F80-4A51-995F-638C5F2CA350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D7FA2FE-7F80-4A51-995F-638C5F2CA350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D7FA2FE-7F80-4A51-995F-638C5F2CA350}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

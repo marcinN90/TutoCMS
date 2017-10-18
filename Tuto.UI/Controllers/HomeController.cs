@@ -30,20 +30,20 @@ namespace Tuto.UI.Controllers
             homeModel.SeoDescription = homePageSettings.SeoDescription;
             homeModel.Description = homePageSettings.Descritpion;
 
-            homeModel.Categories = new List<Category>();
+            homeModel.Categories = new List<CategoryDTO>();
             foreach (var category in categories)
             {
-                var entries = new List<Entry>();
+                var entries = new List<EntryDTO>();
                 foreach (var entry in category.Entries)
                 {
-                    entries.Add(new Entry
+                    entries.Add(new EntryDTO
                     {
                         Id = entry.Id,
                         Title = entry.Title
                     });
                 }
 
-                homeModel.Categories.Add(new Category
+                homeModel.Categories.Add(new CategoryDTO
                 {
                     Id = category.Id,
                     Title = category.Title,
