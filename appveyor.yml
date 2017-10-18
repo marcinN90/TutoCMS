@@ -4,3 +4,6 @@ environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
 before_build:
   - cmd: dotnet restore
+  
+test_script:
+  - ps: dotnet test .\Drapper.Validation.Tests\Drapper.Validation.Tests.csproj  
