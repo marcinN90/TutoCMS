@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TutoDataRepo;
+using Tuto.UI.Models.Library;
 
 namespace Tuto.UI.Controllers
 {
@@ -19,7 +20,11 @@ namespace Tuto.UI.Controllers
             if (id == null)
                 return NotFound();
             var entry = await _dataRepository.GetEntryById(id);
-            return View(entry);
+
+            ShowEntryModel entryModel = new ShowEntryModel();
+            entryModel.Title = entry.Title;
+            entryModel.Content = entry.Content;
+            return View(entryModel);
         }
     }
 }
