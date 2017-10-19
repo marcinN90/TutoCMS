@@ -78,6 +78,12 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
             throw new NotImplementedException();
         }
 
+        public Task<Entry> GetEntryById(int? id)
+        {
+            var entry = fakeData.Entries.Where(x => x.Id.Equals(id));
+            return Task.FromResult(entry.FirstOrDefault());
+        }
+
         public Task<HomePageSettings> GetHomePageSettings()
         {
             return Task.FromResult(fakeData.HomePageSettings);
