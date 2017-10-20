@@ -19,11 +19,18 @@ namespace Tuto.UI.Controllers
         {
             if (id == null)
                 return NotFound();
+
             var entry = await _dataRepository.GetEntryById(id);
+            if (entry == null)
+                return NotFound();
 
             ShowEntryModel entryModel = new ShowEntryModel();
             entryModel.Title = entry.Title;
             entryModel.Content = entry.Content;
+            entryModel.LastRevisionAt = entry.LastRevisionAt;
+            entryModel.CategoryId = entry.CategoryId;
+            entryModel.CategoryTitle = entry.Category.Title;
+            entryModel.SeoDescription = entry.SeoDescription;
             return View(entryModel);
         }
     }

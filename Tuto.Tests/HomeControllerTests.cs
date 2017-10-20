@@ -45,10 +45,10 @@ namespace Tuto.Tests
 
             List<Entry> Entries = new List<Entry>
             {
-                new Entry { Id = 1, CategoryId = 1, Title = "Very awesome part 1", Content = "Content", UpdatedOn = DateTime.Now },
-                new Entry { Id = 2, CategoryId = 1, Title = "Very awesome part 2", Content = "Content", UpdatedOn = DateTime.Now },
-                new Entry { Id = 3, CategoryId = 2, Title = "Very awesome part 5", Content = "Content", UpdatedOn = DateTime.Now },
-                new Entry { Id = 4, CategoryId = 2, Title = "Very awesome part 6", Content = "Content", UpdatedOn = DateTime.Now },
+                new Entry { Id = 1, CategoryId = 1, Title = "Very awesome part 1", Content = "Content"},
+                new Entry { Id = 2, CategoryId = 1, Title = "Very awesome part 2", Content = "Content"},
+                new Entry { Id = 3, CategoryId = 2, Title = "Very awesome part 5", Content = "Content"},
+                new Entry { Id = 4, CategoryId = 2, Title = "Very awesome part 6", Content = "Content"},
             };
 
             foreach (var category in categories)
