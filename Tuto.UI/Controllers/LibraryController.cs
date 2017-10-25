@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TutoDataRepo;
 using Tuto.UI.Models.Library;
+using Tuto.UI.Models;
 
 namespace Tuto.UI.Controllers
 {
@@ -31,6 +32,19 @@ namespace Tuto.UI.Controllers
             entryModel.CategoryId = entry.CategoryId;
             entryModel.CategoryTitle = entry.Category.Title;
             entryModel.SeoDescription = entry.SeoDescription;
+
+            var links = await _dataRepository.GetAllLinks();
+            var linksDTO = new List<LinkDTO>();
+            foreach (var link in links)
+            {
+                linksDTO.Add(new Models.LinkDTO
+                {
+                    LinkTitle = link.LinkTitle,
+                    UrlAddress = link.UrlAddress                
+                });
+            }
+
+            entryModel.Links = linksDTO;
             return View(entryModel);
         }
     }

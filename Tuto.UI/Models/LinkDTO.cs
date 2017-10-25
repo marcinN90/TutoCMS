@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Tuto.Data.Models
+namespace Tuto.UI.Models
 {
-    public class Link
+    public class LinkDTO
     {
-        public int Id { get; set; }
         public string UrlAddress { get; set; }
         public string LinkTitle { get; set; }
     }

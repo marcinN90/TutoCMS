@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Tuto.UI.Models.LinkDTO>
+
+@{
+    @foreach (var link in Model)
+    {
+    <p><a href="@link.UrlAddress">@link.LinkTitle</a></p>
+    }
+}

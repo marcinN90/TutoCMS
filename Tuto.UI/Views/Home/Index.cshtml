@@ -13,7 +13,7 @@
     <ul>
         @foreach (var entry in item.Entires)
         {
-            <li>@entry.Title</li>
+            <li><a asp-controller="library" asp-action="showentry" asp-route-id="@entry.Id">@entry.Title</a> </li>
         }
     </ul>
 }

@@ -13,10 +13,13 @@ namespace Tuto.UI.Models.Library
         public string Content { get; set; }
         
         [Display(Name ="Ostatnia rewizja:")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime LastRevisionAt { get; set; }
         public string SeoDescription { get; set; }
         public int CategoryId { get; set; }
         [Display(Name = "Kategoria:")]
-        public string CategoryTitle { get; set; }        
+        public string CategoryTitle { get; set; }   
+        
+        public List<LinkDTO> Links { get; set; }
     }
 }
