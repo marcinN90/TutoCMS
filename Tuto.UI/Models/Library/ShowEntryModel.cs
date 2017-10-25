@@ -21,5 +21,7 @@ namespace Tuto.UI.Models.Library
         public string CategoryTitle { get; set; }   
         
         public List<LinkDTO> Links { get; set; }
+
+        public List<CategoryDTO> Categories { get; set; }
     }
 }

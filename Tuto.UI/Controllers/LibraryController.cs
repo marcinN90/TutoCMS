@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using TutoDataRepo;
 using Tuto.UI.Models.Library;
 using Tuto.UI.Models;
+using Tuto.UI.Models.Home;
 
 namespace Tuto.UI.Controllers
 {
@@ -43,8 +44,30 @@ namespace Tuto.UI.Controllers
                     UrlAddress = link.UrlAddress                
                 });
             }
-
             entryModel.Links = linksDTO;
+
+            var categories = await _dataRepository.GetAllCategories();
+            entryModel.Categories = new List<CategoryDTO>();
+            foreach (var category in categories)
+            {
+                var entries = new List<EntryDTO>();
+                foreach (var entryDetails in category.Entries)
+                {
+                    entries.Add(new EntryDTO
+                    {
+                        Id = entryDetails.Id,
+                        Title = entryDetails.Title
+                    });
+                }
+
+                entryModel.Categories.Add(new CategoryDTO
+                {
+                    Id = category.Id,
+                    Title = category.Title,
+                    EntriesCounter = entries.Count(),
+                    Entires = entries
+                });
+            }
             return View(entryModel);
         }
     }
