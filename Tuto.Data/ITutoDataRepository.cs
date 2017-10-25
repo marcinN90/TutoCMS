@@ -13,5 +13,6 @@ namespace TutoDataRepo
         Task<WebsiteDetails> GetWebsiteDetails();
         Task<HomePageSettings> GetHomePageSettings();
         Task<Entry> GetEntryById(int? id);
+        Task<List<Link>> GetAllLinks();
     }
 }

@@ -56,6 +56,11 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
             SeoDescription = "Awesome SEO Description",
             Descritpion = LoremIpsum.Substring(0, 500)
         };
+        public List<Link> Links = new List<Link>
+        {
+            new Link { Id = 1, LinkTitle = "Great link to share", UrlAddress = "example.com"},
+            new Link { Id = 2, LinkTitle = "Second great link to share", UrlAddress = "example.com2"}
+        };
     }
     #endregion
 
@@ -72,6 +77,10 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
             return Task.FromResult(categories.ToList());
         }
 
+        public Task<List<Link>> GetAllLinks()
+        {
+            return Task.FromResult(fakeData.Links);
+        }
 
         public Category GetCategoryById(int id)
         {
@@ -89,7 +98,7 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
                 Entry nulledEntry = null;
                 return Task.FromResult(nulledEntry);
             }
-               
+
 
             entry.Category = fakeData.Categories.Where(x => x.Id.Equals(entry.CategoryId)).FirstOrDefault();
             return Task.FromResult(entry);
@@ -104,6 +113,6 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
         {
             return Task.FromResult(fakeData.WebsiteDetails);
         }
-        
+
     }
 }
