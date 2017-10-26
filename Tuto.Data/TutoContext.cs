@@ -11,5 +11,9 @@ namespace Tuto.Data
         public TutoContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Link> Link { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Entry> EntryPart { get; set; }
+        public DbSet<HomePageSettings> HomePageSettings { get; set; }
+        public DbSet<Link> WebsiteDetails { get; set; }
     }
 }
