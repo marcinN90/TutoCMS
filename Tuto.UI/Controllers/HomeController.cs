@@ -51,6 +51,18 @@ namespace Tuto.UI.Controllers
                     Entires = entries
                 });
             }
+            var links = await _dataRepo.GetAllLinks();
+            var linksDTO = new List<LinkDTO>();
+            foreach (var link in links)
+            {
+                linksDTO.Add(new Models.LinkDTO
+                {
+                    LinkTitle = link.LinkTitle,
+                    UrlAddress = link.UrlAddress
+                });
+            }
+            homeModel.Links = linksDTO;
+
 
             return View(homeModel); ;
         }
