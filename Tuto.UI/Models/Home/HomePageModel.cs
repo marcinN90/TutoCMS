@@ -12,5 +12,7 @@ namespace Tuto.UI.Models.Home
         public string Description { get; set; }
         public string SeoDescription  { get; set; }
         public List<CategoryDTO> Categories { get; set; }
+
+        public List<LinkDTO> Links { get; set; }
     }
 }

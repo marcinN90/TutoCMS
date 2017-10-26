@@ -3,18 +3,31 @@
     ViewData["Title"] = Model.HomePageTitle + " - " + Model.WebSiteTitle;
     ViewData["SeoDescription"] = Model.SeoDescription;
 }
-<h1>@Model.HomePageTitle</h1>
-<p>@Model.Description</p>
+<div class="row">
+    <div class="col-md-9">
+        <h1>@Model.HomePageTitle</h1>
+        <p>@Model.Description</p>
 
-@foreach (var item in Model.Categories)
-{
-    @item.Title
-    <p>Części: @item.EntriesCounter</p>
-    <ul>
-        @foreach (var entry in item.Entires)
+        @foreach (var item in Model.Categories)
         {
-            <li><a asp-controller="library" asp-action="showentry" asp-route-id="@entry.Id">@entry.Title</a> </li>
+            <h4>@item.Title</h4>
+            <p>Części: @item.EntriesCounter</p>
+            <ol class="list-unstyled">
+                @foreach (var entry in item.Entires)
+                {
+                    <li><a asp-controller="library" asp-action="showentry" asp-route-id="@entry.Id">@entry.Title</a></li>
+                }
+            </ol>
         }
-    </ul>
-}
+    </div>
+
+    <div class="col-md-3">
+        @Html.Partial("_LinksPartial", Model.Links)
+        <hr />
+
+    </div>
+</div>
+
+
+
 
