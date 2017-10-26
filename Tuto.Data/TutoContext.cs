@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Tuto.Data.Models;
 
 namespace Tuto.Data
 {
@@ -9,5 +10,6 @@ namespace Tuto.Data
     {
         public TutoContext(DbContextOptions options) : base(options) { }
 
+        public DbSet<Link> Link { get; set; }
     }
 }

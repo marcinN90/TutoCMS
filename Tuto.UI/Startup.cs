@@ -8,14 +8,19 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TutoDataRepo;
 using TutoRepo;
+using Tuto.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tuto.UI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                 .SetBasePath(env.ContentRootPath)
+                 .AddUserSecrets<Startup>();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +31,8 @@ namespace Tuto.UI
             services.AddMvc();
 
             services.AddScoped<ITudoDataRepository, FakeTutoDataRepo>();
+
+            services.AddDbContext<TutoContext>(options => options.UseSqlServer(Configuration["DefaultConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
