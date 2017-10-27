@@ -10,6 +10,7 @@ using TutoDataRepo;
 using TutoRepo;
 using Tuto.Data;
 using Microsoft.EntityFrameworkCore;
+using Tuto.Repo;
 
 namespace Tuto.UI
 {
@@ -30,7 +31,7 @@ namespace Tuto.UI
         {
             services.AddMvc();
 
-            services.AddScoped<ITudoDataRepository, FakeTutoDataRepo>();
+            services.AddScoped<ITudoDataRepository, SqlTutoRepo>();
 
             services.AddDbContext<TutoContext>(options => options.UseSqlServer(Configuration["DefaultConnection"]));
         }
