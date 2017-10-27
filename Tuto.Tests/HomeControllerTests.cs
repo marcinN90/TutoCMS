@@ -23,6 +23,8 @@ namespace Tuto.Tests
             mockRepo.Setup(x => x.GetAllCategories()).Returns(Task.FromResult(GetCategories()));
             mockRepo.Setup(x => x.GetWebsiteDetails()).Returns(Task.FromResult(WebsiteDetails));
             mockRepo.Setup(x => x.GetHomePageSettings()).Returns(Task.FromResult(HomePageSettings));
+            mockRepo.Setup(x => x.GetAllLinks()).Returns(Task.FromResult(Links));
+
             var controller = new HomeController(mockRepo.Object);
 
             //ACT
@@ -69,6 +71,12 @@ namespace Tuto.Tests
             Title = "HomeTitle",
             SeoDescription = "Awesome SEO Description",
             Descritpion = "Long Description"
+        };
+
+        public List<Link> Links = new List<Link>
+        {
+            new Link { Id = 1, LinkTitle = "Great link to share", UrlAddress = "example.com"},
+            new Link { Id = 2, LinkTitle = "Second great link to share", UrlAddress = "example.com2"}
         };
     }
 }
