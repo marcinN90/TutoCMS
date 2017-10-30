@@ -5,12 +5,16 @@ using System.Collections.Generic;
 
 namespace Tuto.Data.Migrations
 {
-    public partial class CreateBasicTables : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "dbo");
+
             migrationBuilder.CreateTable(
                 name: "Category",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -26,6 +30,7 @@ namespace Tuto.Data.Migrations
 
             migrationBuilder.CreateTable(
                 name: "HomePageSettings",
+                schema: "dbo",
                 columns: table => new
                 {
                     Title = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -38,7 +43,36 @@ namespace Tuto.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Link",
+                schema: "dbo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    LinkTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UrlAddress = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Link", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WebsiteDetails",
+                schema: "dbo",
+                columns: table => new
+                {
+                    Title = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    OwnerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WebsiteDetails", x => x.Title);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "EntryPart",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -55,6 +89,7 @@ namespace Tuto.Data.Migrations
                     table.ForeignKey(
                         name: "FK_EntryPart_Category_CategoryId",
                         column: x => x.CategoryId,
+                        principalSchema: "dbo",
                         principalTable: "Category",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -62,6 +97,7 @@ namespace Tuto.Data.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_EntryPart_CategoryId",
+                schema: "dbo",
                 table: "EntryPart",
                 column: "CategoryId");
         }
@@ -69,13 +105,24 @@ namespace Tuto.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EntryPart");
+                name: "EntryPart",
+                schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "HomePageSettings");
+                name: "HomePageSettings",
+                schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Link",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
+                name: "WebsiteDetails",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
+                name: "Category",
+                schema: "dbo");
         }
     }
 }

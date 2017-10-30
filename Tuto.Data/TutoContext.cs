@@ -14,6 +14,12 @@ namespace Tuto.Data
         public DbSet<Category> Category { get; set; }
         public DbSet<Entry> EntryPart { get; set; }
         public DbSet<HomePageSettings> HomePageSettings { get; set; }
-        public DbSet<Link> WebsiteDetails { get; set; }
+        public DbSet<WebsiteDetails> WebsiteDetails { get; set; }
+        
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.HasDefaultSchema("dbo");
+            base.OnModelCreating(builder);
+        }
     }
 }

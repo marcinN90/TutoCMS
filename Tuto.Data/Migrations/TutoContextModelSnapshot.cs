@@ -17,6 +17,7 @@ namespace Tuto.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("dbo")
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -84,6 +85,18 @@ namespace Tuto.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Link");
+                });
+
+            modelBuilder.Entity("Tuto.Data.Models.WebsiteDetails", b =>
+                {
+                    b.Property<string>("Title")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("OwnerEmail");
+
+                    b.HasKey("Title");
+
+                    b.ToTable("WebsiteDetails");
                 });
 
             modelBuilder.Entity("Tuto.Data.Models.Entry", b =>
