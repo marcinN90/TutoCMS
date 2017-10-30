@@ -19,7 +19,9 @@ namespace Tuto.Repo
         }
         public Task<List<Category>> GetAllCategories()
         {
-            var categories =  _tutoContext.Category.ToList();
+            var categories =  _tutoContext.Category
+                .Include(e => e.Entries)
+                .ToList();
             return Task.FromResult(categories);
         }
 
@@ -36,7 +38,10 @@ namespace Tuto.Repo
 
         public Task<Entry> GetEntryById(int? id)
         {
-            throw new NotImplementedException();
+            var entryPart = _tutoContext.EntryPart
+                .Include(c => c.Category)
+                .FirstOrDefault(e => e.Id.Equals(id));
+            return Task.FromResult(entryPart);
         }
 
         public Task<HomePageSettings> GetHomePageSettings()

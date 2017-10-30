@@ -16,12 +16,9 @@ namespace Tuto.UI
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-                 .SetBasePath(env.ContentRootPath)
-                 .AddUserSecrets<Startup>();
-            Configuration = builder.Build();
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -33,7 +30,8 @@ namespace Tuto.UI
 
             services.AddScoped<ITudoDataRepository, SqlTutoRepo>();
 
-            services.AddDbContext<TutoContext>(options => options.UseSqlServer(Configuration["DefaultConnection"]));
+            services.AddDbContext<TutoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

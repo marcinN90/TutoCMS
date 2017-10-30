@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-9">
         <h1>@Model.HomePageTitle</h1>
-        <p>@Model.Description</p>
+        @Html.Raw(Model.Description)
 
         @foreach (var item in Model.Categories)
         {
