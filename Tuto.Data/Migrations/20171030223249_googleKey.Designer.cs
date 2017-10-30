@@ -11,9 +11,10 @@ using Tuto.Data;
 namespace Tuto.Data.Migrations
 {
     [DbContext(typeof(TutoContext))]
-    partial class TutoContextModelSnapshot : ModelSnapshot
+    [Migration("20171030223249_googleKey")]
+    partial class googleKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
