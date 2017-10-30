@@ -104,6 +104,11 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
             return Task.FromResult(entry);
         }
 
+        public Task<string> GetGoogleAnalyticsKey()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<HomePageSettings> GetHomePageSettings()
         {
             return Task.FromResult(fakeData.HomePageSettings);

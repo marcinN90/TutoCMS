@@ -44,6 +44,13 @@ namespace Tuto.Repo
             return Task.FromResult(entryPart);
         }
 
+        public Task<string> GetGoogleAnalyticsKey()
+        {
+            string googleKey = _tutoContext.WebsiteDetails.Select(x => x.GoogleAnalyticsCode).FirstOrDefault();
+            return Task.FromResult(googleKey);
+           
+        }
+
         public Task<HomePageSettings> GetHomePageSettings()
         {
             var homePageSettings = _tutoContext.HomePageSettings.SingleOrDefault();

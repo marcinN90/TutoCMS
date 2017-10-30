@@ -29,6 +29,7 @@ namespace Tuto.UI.Controllers
             homeModel.HomePageTitle = homePageSettings.Title;
             homeModel.SeoDescription = homePageSettings.SeoDescription;
             homeModel.Description = homePageSettings.Descritpion;
+            homeModel.GoogleCode = await _dataRepo.GetGoogleAnalyticsKey();
 
             homeModel.Categories = new List<CategoryDTO>();
             foreach (var category in categories)

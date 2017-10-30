@@ -11,6 +11,7 @@ namespace Tuto.UI.Models.Home
         public string HomePageTitle { get; set; }
         public string Description { get; set; }
         public string SeoDescription  { get; set; }
+        public string GoogleCode { get; set; }
         public List<CategoryDTO> Categories { get; set; }
 
         public List<LinkDTO> Links { get; set; }
