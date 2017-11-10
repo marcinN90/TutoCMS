@@ -12,16 +12,16 @@ namespace Tuto.UI.Controllers
 {
     public class HomeController : Controller
     {
-        ITudoDataRepository _dataRepo;
-        public HomeController(ITudoDataRepository dataRepo)
+        ITudoDataRepository repository;
+        public HomeController(ITudoDataRepository repo)
         {
-            _dataRepo = dataRepo;
+            repository = repo;
         }
         public async Task<IActionResult> Index()
         {
-            var webDetails = await _dataRepo.GetWebsiteDetails();
-            var homePageSettings = await _dataRepo.GetHomePageSettings(); 
-            var categories = await _dataRepo.GetAllCategories();
+            var webDetails = await repository.GetWebsiteDetails();
+            var homePageSettings = await repository.GetHomePageSettings(); 
+            var categories = await repository.GetAllCategories();
          
             HomePageModel homeModel = new HomePageModel();
 
@@ -29,7 +29,7 @@ namespace Tuto.UI.Controllers
             homeModel.HomePageTitle = homePageSettings.Title;
             homeModel.SeoDescription = homePageSettings.SeoDescription;
             homeModel.Description = homePageSettings.Descritpion;
-            homeModel.GoogleCode = await _dataRepo.GetGoogleAnalyticsKey();
+            homeModel.GoogleCode = await repository.GetGoogleAnalyticsKey();
 
             homeModel.Categories = new List<CategoryDTO>();
             foreach (var category in categories)
@@ -52,7 +52,7 @@ namespace Tuto.UI.Controllers
                     Entires = entries
                 });
             }
-            var links = await _dataRepo.GetAllLinks();
+            var links = await repository.GetAllLinks();
             var linksDTO = new List<LinkDTO>();
             foreach (var link in links)
             {
