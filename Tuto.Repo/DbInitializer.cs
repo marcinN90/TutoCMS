@@ -53,7 +53,7 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
 
             public WebsiteDetails WebsiteDetails = new WebsiteDetails
             {
-                Title = "WebsiteTtile",
+                Name = "WebsiteTtile",
                 OwnerEmail = "example@example.com"
             };
 
