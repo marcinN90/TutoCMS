@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tuto.UI.Models.DTOModels;
 
-namespace Tuto.UI.Models.Library
+namespace Tuto.UI.Models
 {
-    public class ShowEntryModel
+    public class ShowEntryViewModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

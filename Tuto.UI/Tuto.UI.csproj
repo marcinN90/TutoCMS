@@ -7,9 +7,13 @@
 
   <ItemGroup>
     <Compile Remove="Data\**" />
+    <Compile Remove="Models\Home\**" />
     <Content Remove="Data\**" />
+    <Content Remove="Models\Home\**" />
     <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Models\Home\**" />
     <None Remove="Data\**" />
+    <None Remove="Models\Home\**" />
   </ItemGroup>
 
   <ItemGroup>

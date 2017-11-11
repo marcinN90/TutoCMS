@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tuto.UI.Models.DTOModels;
 
-namespace Tuto.UI.Models.Home
+namespace Tuto.UI.Models
 {
-    public class HomePageModel
+    public class HomePageViewModel
     {
         public string WebSiteTitle { get; set; }
         public string HomePageTitle { get; set; }

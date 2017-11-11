@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Tuto.UI.Models.Home;
+using Tuto.UI.Models;
 using TutoDataRepo;
 using System.Threading.Tasks;
-using Tuto.UI.Models;
 using Tuto.UI.Models.DTOModels;
 
 namespace Tuto.UI.Controllers
@@ -24,7 +23,7 @@ namespace Tuto.UI.Controllers
             var homePageSettings = await repository.GetHomePageSettings(); 
             var categories = await repository.GetAllCategories();
          
-            HomePageModel homeModel = new HomePageModel();
+            HomePageViewModel homeModel = new HomePageViewModel();
 
             homeModel.WebSiteTitle = webDetails.Title;
             homeModel.HomePageTitle = homePageSettings.Title;

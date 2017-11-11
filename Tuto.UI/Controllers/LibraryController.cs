@@ -4,10 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TutoDataRepo;
-using Tuto.UI.Models.Library;
-using Tuto.UI.Models;
-using Tuto.UI.Models.Home;
 using Tuto.UI.Models.DTOModels;
+using Tuto.UI.Models;
 
 namespace Tuto.UI.Controllers
 {
@@ -27,7 +25,7 @@ namespace Tuto.UI.Controllers
             if (entry == null)
                 return NotFound();
 
-            ShowEntryModel entryModel = new ShowEntryModel();
+            ShowEntryViewModel entryModel = new ShowEntryViewModel();
             entryModel.Title = entry.Title;
             entryModel.Content = entry.Content;
             entryModel.LastRevisionAt = entry.LastRevisionAt;
