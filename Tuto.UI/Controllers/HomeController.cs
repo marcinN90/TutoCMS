@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Tuto.UI.Models.Home;
+using Tuto.UI.Models;
 using TutoDataRepo;
 using System.Threading.Tasks;
-using Tuto.UI.Models;
+using Tuto.UI.Models.DTOModels;
 
 namespace Tuto.UI.Controllers
 {
     public class HomeController : Controller
     {
-        ITudoDataRepository _dataRepo;
-        public HomeController(ITudoDataRepository dataRepo)
+        ITudoDataRepository repository;
+        public HomeController(ITudoDataRepository repo)
         {
-            _dataRepo = dataRepo;
+            repository = repo;
         }
         public async Task<IActionResult> Index()
         {
-            var webDetails = await _dataRepo.GetWebsiteDetails();
-            var homePageSettings = await _dataRepo.GetHomePageSettings(); 
-            var categories = await _dataRepo.GetAllCategories();
+            var webDetails = await repository.GetWebsiteDetails();
+            var homePageSettings = await repository.GetHomePageSettings(); 
+            var categories = await repository.GetAllCategories();
          
-            HomePageModel homeModel = new HomePageModel();
+            HomePageViewModel homeModel = new HomePageViewModel();
 
             homeModel.WebSiteTitle = webDetails.Title;
             homeModel.HomePageTitle = homePageSettings.Title;
             homeModel.SeoDescription = homePageSettings.SeoDescription;
             homeModel.Description = homePageSettings.Descritpion;
+            homeModel.GoogleCode = await repository.GetGoogleAnalyticsKey();
 
             homeModel.Categories = new List<CategoryDTO>();
             foreach (var category in categories)
@@ -47,15 +48,14 @@ namespace Tuto.UI.Controllers
                 {
                     Id = category.Id,
                     Title = category.Title,
-                    EntriesCounter = entries.Count(),
                     Entires = entries
                 });
             }
-            var links = await _dataRepo.GetAllLinks();
+            var links = await repository.GetAllLinks();
             var linksDTO = new List<LinkDTO>();
             foreach (var link in links)
             {
-                linksDTO.Add(new Models.LinkDTO
+                linksDTO.Add(new LinkDTO
                 {
                     LinkTitle = link.LinkTitle,
                     UrlAddress = link.UrlAddress

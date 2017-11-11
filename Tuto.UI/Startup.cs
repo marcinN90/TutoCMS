@@ -11,6 +11,7 @@ using TutoRepo;
 using Tuto.Data;
 using Microsoft.EntityFrameworkCore;
 using Tuto.Repo;
+using TutoRepo.TutoRepo;
 
 namespace Tuto.UI
 {
@@ -30,12 +31,12 @@ namespace Tuto.UI
 
             services.AddScoped<ITudoDataRepository, SqlTutoRepo>();
 
-            services.AddDbContext<TutoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<TutoContext>(options => options.UseInMemoryDatabase("FakeDb"));
           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -55,6 +56,9 @@ namespace Tuto.UI
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            var context = serviceProvider.GetService<TutoContext>();
+            DbInitializer.SeeDbWithFakeData(context);
         }
     }
 }

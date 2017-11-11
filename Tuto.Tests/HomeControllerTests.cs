@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tuto.Data.Models;
 using Tuto.UI.Controllers;
-using Tuto.UI.Models.Home;
+using Tuto.UI.Models;
 using TutoDataRepo;
 using Xunit;
 
@@ -33,7 +33,7 @@ namespace Tuto.Tests
             //var model = result.
             //ASSERT
             var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<HomePageModel>(viewResult.ViewData.Model);
+            var model = Assert.IsAssignableFrom<HomePageViewModel>(viewResult.ViewData.Model);
             Assert.Equal(2, model.Categories.Count());
         }
 

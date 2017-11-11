@@ -14,5 +14,6 @@ namespace TutoDataRepo
         Task<HomePageSettings> GetHomePageSettings();
         Task<Entry> GetEntryById(int? id);
         Task<List<Link>> GetAllLinks();
+        Task<string> GetGoogleAnalyticsKey();
     }
 }

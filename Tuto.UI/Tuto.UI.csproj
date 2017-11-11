@@ -6,6 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\**" />
+    <Compile Remove="Models\Home\**" />
+    <Content Remove="Data\**" />
+    <Content Remove="Models\Home\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Models\Home\**" />
+    <None Remove="Data\**" />
+    <None Remove="Models\Home\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
@@ -21,9 +33,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <DependentUpon>appsettings.json</DependentUpon>
+    </Content>
   </ItemGroup>
 
 </Project>

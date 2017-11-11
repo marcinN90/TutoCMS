@@ -10,5 +10,6 @@ namespace Tuto.Data.Models
         [Key]
         public string Title { get; set; }
         public string OwnerEmail { get; set; }
+        public string GoogleAnalyticsCode { get; set; }
     }
 }
