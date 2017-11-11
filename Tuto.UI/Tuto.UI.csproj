@@ -29,12 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tuto.Services\Tuto.Repo.csproj" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\images\" />
+    <ProjectReference Include="..\Tuto.Repo\Tuto.Repo.csproj" />
   </ItemGroup>
 
   <ItemGroup>
