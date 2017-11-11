@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tuto.UI.Models.DTOModels;
 
 namespace Tuto.UI.Models.Home
 {

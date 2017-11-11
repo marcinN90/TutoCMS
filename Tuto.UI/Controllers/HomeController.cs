@@ -7,6 +7,7 @@ using Tuto.UI.Models.Home;
 using TutoDataRepo;
 using System.Threading.Tasks;
 using Tuto.UI.Models;
+using Tuto.UI.Models.DTOModels;
 
 namespace Tuto.UI.Controllers
 {
@@ -56,7 +57,7 @@ namespace Tuto.UI.Controllers
             var linksDTO = new List<LinkDTO>();
             foreach (var link in links)
             {
-                linksDTO.Add(new Models.LinkDTO
+                linksDTO.Add(new LinkDTO
                 {
                     LinkTitle = link.LinkTitle,
                     UrlAddress = link.UrlAddress
