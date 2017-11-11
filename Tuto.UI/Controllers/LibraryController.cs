@@ -65,7 +65,6 @@ namespace Tuto.UI.Controllers
                 {
                     Id = category.Id,
                     Title = category.Title,
-                    EntriesCounter = entries.Count(),
                     Entires = entries
                 });
             }
