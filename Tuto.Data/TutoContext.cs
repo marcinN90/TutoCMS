@@ -12,7 +12,7 @@ namespace Tuto.Data
 
         public DbSet<Link> Link { get; set; }
         public DbSet<Category> Category { get; set; }
-        public DbSet<Entry> EntryPart { get; set; }
+        public DbSet<Entry> Entry { get; set; }
         public DbSet<HomePageSettings> HomePageSettings { get; set; }
         public DbSet<WebsiteDetails> WebsiteDetails { get; set; }
         

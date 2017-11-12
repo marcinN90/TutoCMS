@@ -1,0 +1,13 @@
+﻿@model Tuto.Data.Models.WebsiteDetails
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Configuration</h2>
+@Html.DisplayNameFor(x => x.Name): @Html.DisplayFor(x => x.Name)
+<br/>
+@Html.DisplayNameFor(x => x.OwnerEmail): @Html.DisplayFor(x => x.OwnerEmail)
+<br/>
+@Html.DisplayNameFor(x => x.GoogleAnalyticsCode): @Html.DisplayFor(x => x.GoogleAnalyticsCode)
+

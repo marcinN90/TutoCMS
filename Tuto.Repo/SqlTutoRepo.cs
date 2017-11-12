@@ -38,10 +38,16 @@ namespace Tuto.Repo
 
         public Task<Entry> GetEntryById(int? id)
         {
-            var entryPart = _tutoContext.EntryPart
+            var entryPart = _tutoContext.Entry
                 .Include(c => c.Category)
                 .FirstOrDefault(e => e.Id.Equals(id));
             return Task.FromResult(entryPart);
+        }
+
+        public Task<List<Entry>> GetAllEntries()
+        {
+            var entries = _tutoContext.Entry.ToList();
+            return Task.FromResult(entries);
         }
 
         public Task<string> GetGoogleAnalyticsKey()
