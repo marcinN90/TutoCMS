@@ -6,6 +6,16 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    @RenderBody()
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Strona główna</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
 </body>
 </html>

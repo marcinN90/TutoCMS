@@ -1,4 +1,4 @@
-﻿@model Tuto.UI.Models.Library.ShowEntryModel
+﻿@model Tuto.UI.Models.ShowEntryViewModel
 @{
     ViewData["Title"] = Model.Title;
 }
@@ -16,7 +16,6 @@
         @foreach (var item in Model.Categories)
         {
             @item.Title
-            <p>Części: @item.EntriesCounter</p>
             <ul>
                 @foreach (var entry in item.Entires)
                 {

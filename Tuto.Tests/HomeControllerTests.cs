@@ -62,7 +62,7 @@ namespace Tuto.Tests
 
         public WebsiteDetails WebsiteDetails = new WebsiteDetails
         {
-            Title = "WebsiteTtile",
+            Name = "WebsiteTtile",
             OwnerEmail = "example@example.com"
         };
 

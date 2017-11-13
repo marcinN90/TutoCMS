@@ -25,7 +25,7 @@ namespace Tuto.UI.Controllers
          
             HomePageViewModel homeModel = new HomePageViewModel();
 
-            homeModel.WebSiteTitle = webDetails.Title;
+            homeModel.WebSiteName = webDetails.Name;
             homeModel.HomePageTitle = homePageSettings.Title;
             homeModel.SeoDescription = homePageSettings.SeoDescription;
             homeModel.Description = homePageSettings.Descritpion;

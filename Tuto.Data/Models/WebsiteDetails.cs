@@ -7,8 +7,9 @@ namespace Tuto.Data.Models
 {
     public class WebsiteDetails
     {
-        [Key]
-        public string Title { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        [EmailAddress]
         public string OwnerEmail { get; set; }
         public string GoogleAnalyticsCode { get; set; }
     }

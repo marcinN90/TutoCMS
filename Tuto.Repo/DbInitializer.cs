@@ -53,7 +53,7 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
 
             public WebsiteDetails WebsiteDetails = new WebsiteDetails
             {
-                Title = "WebsiteTtile",
+                Name = "WebsiteTtile",
                 OwnerEmail = "example@example.com"
             };
 
@@ -76,7 +76,7 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
             public static void SeeDbWithFakeData(TutoContext context)
             {
                 FakeData fakeData = new FakeData();
-                context.EntryPart.AddRange(fakeData.Entries);
+                context.Entry.AddRange(fakeData.Entries);
                 context.WebsiteDetails.Add(fakeData.WebsiteDetails);
                 context.HomePageSettings.Add(fakeData.HomePageSettings);
                 context.Category.AddRange(fakeData.Categories);
