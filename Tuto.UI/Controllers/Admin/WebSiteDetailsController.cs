@@ -16,10 +16,27 @@ namespace Tuto.UI.Controllers.Admin
             _repo = repo;
         }
 
+        [HttpGet]
         public async Task <IActionResult> Index()
         {
             WebsiteDetails webDetails = await _repo.GetWebsiteDetails();
             return View(webDetails);
+        }
+
+        [HttpPost]
+        public async Task <IActionResult> Index(WebsiteDetails webDetails)
+        {
+            if(ModelState.IsValid)
+            {
+                await _repo.SaveWebsiteDetails(webDetails);
+                TempData["message"] = "Configuration was correctly saved";
+            }
+            else
+            {
+                TempData["messge"] = "Error! Configuration not changed";
+            }
+            return RedirectToAction("Index");
+
         }
     }
 }

@@ -68,5 +68,15 @@ namespace Tuto.Repo
             var websiteDetails = _tutoContext.WebsiteDetails.SingleOrDefault();
             return Task.FromResult(websiteDetails);
         }
+
+        public Task SaveWebsiteDetails (WebsiteDetails websiteDetails)
+        {
+            WebsiteDetails dbEntry = _tutoContext.WebsiteDetails.FirstOrDefault(x => x.Id.Equals(1));
+            dbEntry.Name = websiteDetails.Name;
+            dbEntry.OwnerEmail = websiteDetails.OwnerEmail;
+            dbEntry.GoogleAnalyticsCode = websiteDetails.GoogleAnalyticsCode;
+            _tutoContext.SaveChanges();
+            return Task.CompletedTask;
+        }
     }
 }

@@ -16,5 +16,7 @@ namespace TutoDataRepo
         Task<List<Entry>> GetAllEntries();
         Task<List<Link>> GetAllLinks();
         Task<string> GetGoogleAnalyticsKey();
+
+        Task SaveWebsiteDetails(WebsiteDetails websiteDetails);
     }
 }
