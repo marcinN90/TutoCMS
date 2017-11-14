@@ -46,7 +46,9 @@ namespace Tuto.Repo
 
         public Task<List<Entry>> GetAllEntries()
         {
-            var entries = _tutoContext.Entry.ToList();
+            var entries = _tutoContext.Entry
+                .Include(x => x.Category)
+                .ToList();
             return Task.FromResult(entries);
         }
 

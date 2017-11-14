@@ -1,0 +1,36 @@
+﻿@model List<Tuto.Data.Models.Entry>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (TempData["message"] != null)
+{
+<div class="alert alert-info">
+    @TempData["message"]
+</div>
+}
+<h2>Wpisy</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Seo Description</th>
+            <th>Category</th>
+            <th>Last Revision Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entry in Model)
+        {
+            <tr>
+                <td>@entry.Id</td>
+                <td>@entry.Title</td>
+                <td>@entry.SeoDescription</td>
+                <td>@entry.Category.Title</td>
+                <td>@entry.LastRevisionAt</td>
+            </tr>
+        }
+    </tbody>
+</table>

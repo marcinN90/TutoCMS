@@ -35,14 +35,14 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
 
             public List<Entry> Entries = new List<Entry>
         {
-            new Entry { Id = 1, CategoryId = 1, Title = "Very awesome part 1", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
-            new Entry { Id = 2, CategoryId = 1, Title = "Very awesome part 2", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
-            new Entry { Id = 3, CategoryId = 1, Title = "Very awesome part 3", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
-            new Entry { Id = 4, CategoryId = 1, Title = "Very awesome part 4", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
-            new Entry { Id = 5, CategoryId = 1, Title = "Very awesome part 5", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
-            new Entry { Id = 6, CategoryId = 1, Title = "Very awesome part 6", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
-            new Entry { Id = 7, CategoryId = 2, Title = "Very awesome part 5", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
-            new Entry { Id = 8, CategoryId = 2, Title = "Very awesome part 6", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
+            new Entry { Id = 1, CategoryId = 1, Title = "Very awesome part 1", SeoDescription = LoremIpsum.Substring(0, 50) + "...", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
+            new Entry { Id = 2, CategoryId = 1, Title = "Very awesome part 2", SeoDescription = LoremIpsum.Substring(0, 50) + "...", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
+            new Entry { Id = 3, CategoryId = 1, Title = "Very awesome part 3", SeoDescription = LoremIpsum.Substring(0, 50) + "...", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
+            new Entry { Id = 4, CategoryId = 1, Title = "Very awesome part 4", SeoDescription = LoremIpsum.Substring(0, 50) + "...", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
+            new Entry { Id = 5, CategoryId = 1, Title = "Very awesome part 5", SeoDescription = LoremIpsum.Substring(0, 50) + "...", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
+            new Entry { Id = 6, CategoryId = 1, Title = "Very awesome part 6", SeoDescription = LoremIpsum.Substring(0, 50) + "...", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
+            new Entry { Id = 7, CategoryId = 2, Title = "Very awesome part 5", SeoDescription = LoremIpsum.Substring(0, 50) + "...", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
+            new Entry { Id = 8, CategoryId = 2, Title = "Very awesome part 6", SeoDescription = LoremIpsum.Substring(0, 50) + "...", Content = LoremIpsum.Substring(0, 300), LastRevisionAt = DateTime.Now },
         };
 
             public List<Category> Categories = new List<Category>
