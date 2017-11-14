@@ -1,0 +1,23 @@
+﻿@model Tuto.Data.Models.Link
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create</h2>
+<form action="create" method="post">
+    <div class="form-group">
+        <label asp-for="LinkTitle"></label>
+        <input asp-for="LinkTitle" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="UrlAddress"></label>
+        <input asp-for="UrlAddress" class="form-control" />
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Add</button>
+        <a asp-controller="link" asp-action="create" class="btn btn-secondary">Back to list</a>
+    </div>
+</form>
+
+

@@ -78,5 +78,36 @@ namespace Tuto.Repo
             _tutoContext.SaveChanges();
             return Task.CompletedTask;
         }
+
+        public Task CreateLink (Link linkToCreate)
+        {
+            _tutoContext.Link.Add(linkToCreate);
+            _tutoContext.SaveChanges();
+            return Task.CompletedTask;
+        }
+
+        public Task SaveLink (Link editedLink)
+        {
+            Link dbEntry = _tutoContext.Link.FirstOrDefault(x => x.Id.Equals(editedLink.Id));
+            dbEntry.LinkTitle = editedLink.LinkTitle;
+            dbEntry.UrlAddress = editedLink.UrlAddress;
+
+            _tutoContext.SaveChanges();
+            return Task.CompletedTask;
+        }
+
+        public Task<Link> GetLinkById (int id)
+        {
+            var link = _tutoContext.Link.FirstOrDefault(x => x.Id.Equals(id));
+            return Task.FromResult(link);
+        }
+
+        public Task DeleteLink (int id)
+        {
+            var link = _tutoContext.Link.FirstOrDefault(x => x.Id.Equals(id));
+            _tutoContext.Link.Remove(link);
+            _tutoContext.SaveChanges();
+            return Task.CompletedTask;
+        }
     }
 }

@@ -15,8 +15,13 @@ namespace TutoDataRepo
         Task<Entry> GetEntryById(int? id);
         Task<List<Entry>> GetAllEntries();
         Task<List<Link>> GetAllLinks();
+        Task<Link> GetLinkById(int id);
         Task<string> GetGoogleAnalyticsKey();
 
         Task SaveWebsiteDetails(WebsiteDetails websiteDetails);
+        Task SaveLink(Link editedLink);
+        Task CreateLink(Link linkToCreate);
+
+        Task DeleteLink(int id);
     }
 }
