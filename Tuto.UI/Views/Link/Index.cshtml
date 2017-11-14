@@ -1,0 +1,41 @@
+﻿@model List<Tuto.Data.Models.Link>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["message"]
+    </div>
+}
+<h2>All links</h2>
+<a asp-controller="link" asp-action="create" class="btn btn-success">Create new</a> 
+<a asp-controller="admin" asp-action="index" class="btn btn-secondary">Back to admin panel</a>
+<hr/>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Url Title</th>
+            <th>Url Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var link in Model)
+        {
+            <tr>
+                <td>@link.Id</td>
+                <td>@link.LinkTitle</td>
+                <td>@link.UrlAddress</td>
+                <td>
+                    <a asp-controller="link" asp-action = "edit" asp-route-id="@link.Id" class="btn btn-warning">Edit</a>
+                    <a asp-controller="link" asp-action = "delete" asp-route-id="@link.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

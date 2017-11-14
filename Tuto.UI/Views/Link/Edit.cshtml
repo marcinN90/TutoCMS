@@ -1,0 +1,26 @@
+﻿@model Tuto.Data.Models.Link
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit</h2>
+<form asp-controller="link" asp-action="Edit" asp-route-id="@Model.Id" method="post">
+    <div class="form-group">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-group" disabled="disabled" />
+    </div>
+    <div class="form-group">
+        <label asp-for="LinkTitle"></label>
+        <input asp-for="LinkTitle" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="UrlAddress"></label>
+        <input asp-for="UrlAddress" class="form-control" />
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-controller="link" asp-action="index">Back to list</a>
+    </div>
+</form>
+
