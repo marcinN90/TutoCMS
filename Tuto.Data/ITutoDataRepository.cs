@@ -12,7 +12,7 @@ namespace TutoDataRepo
         Category GetCategoryById(int id);
         Task<WebsiteDetails> GetWebsiteDetails();
         Task<HomePageSettings> GetHomePageSettings();
-        Task<Entry> GetEntryById(int? id);
+        Task<Entry> GetEntryById(int id);
         Task<List<Entry>> GetAllEntries();
         Task<List<Link>> GetAllLinks();
         Task<Link> GetLinkById(int id);
@@ -20,8 +20,11 @@ namespace TutoDataRepo
 
         Task SaveWebsiteDetails(WebsiteDetails websiteDetails);
         Task SaveLink(Link editedLink);
+        Task SaveEntry(Entry editedEntry);
         Task CreateLink(Link linkToCreate);
+        Task CreateEntry(Entry entry);
 
         Task DeleteLink(int id);
+        Task DeleteEntry(int id);
     }
 }

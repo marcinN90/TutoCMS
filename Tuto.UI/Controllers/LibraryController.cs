@@ -19,7 +19,7 @@ namespace Tuto.UI.Controllers
             if (id == null)
                 return NotFound();
 
-            var entry = await _dataRepository.GetEntryById(id);
+            var entry = await _dataRepository.GetEntryById((int)id);
             if (entry == null)
                 return NotFound();
 

@@ -1,0 +1,31 @@
+﻿@model Tuto.Data.Models.Entry
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+
+<a asp-action="index" class="btn btn-success btn-sm">Back to list</a>
+<a asp-action="edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm">Edit</a>
+<a asp-action="delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Delete</a>
+
+
+<dt>@Html.DisplayNameFor(model => model.Id)</dt>
+<dd>@Html.DisplayFor(model => model.Id)</dd>
+
+<dt>@Html.DisplayNameFor(model => model.Title)</dt>
+<dd>@Html.DisplayFor(model => model.Title)</dd>
+
+<dt>@Html.DisplayNameFor(model => model.Category)</dt>
+<dd>@Html.DisplayFor(model => model.Category.Title)</dd>
+
+<dt>@Html.DisplayNameFor(model => model.SeoDescription)</dt>
+<dd>@Html.DisplayFor(model => model.SeoDescription)</dd>
+
+<dt>@Html.DisplayNameFor(model => model.Content)</dt>
+<dd>@Html.DisplayFor(model => model.Content)</dd>
+
+<dt>@Html.DisplayNameFor(model => model.LastRevisionAt)</dt>
+<dd>@Html.DisplayFor(model => model.LastRevisionAt)</dd>
