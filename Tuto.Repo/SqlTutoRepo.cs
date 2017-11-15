@@ -36,7 +36,7 @@ namespace Tuto.Repo
             throw new NotImplementedException();
         }
 
-        public Task<Entry> GetEntryById(int? id)
+        public Task<Entry> GetEntryById(int id)
         {
             var entryPart = _tutoContext.Entry
                 .Include(c => c.Category)
@@ -98,6 +98,19 @@ namespace Tuto.Repo
             return Task.CompletedTask;
         }
 
+        public Task SaveEntry (Entry editedEntry)
+        {
+            Entry dbEntry = _tutoContext.Entry.FirstOrDefault(x => x.Id.Equals(editedEntry.Id));
+            dbEntry.Title = editedEntry.Title;
+            dbEntry.SeoDescription = editedEntry.SeoDescription;
+            dbEntry.CategoryId = editedEntry.CategoryId;
+            dbEntry.Content = editedEntry.Content;
+            dbEntry.LastRevisionAt = editedEntry.LastRevisionAt;
+
+            _tutoContext.SaveChanges();
+            return Task.CompletedTask;
+        }
+
         public Task<Link> GetLinkById (int id)
         {
             var link = _tutoContext.Link.FirstOrDefault(x => x.Id.Equals(id));
@@ -110,6 +123,19 @@ namespace Tuto.Repo
             _tutoContext.Link.Remove(link);
             _tutoContext.SaveChanges();
             return Task.CompletedTask;
+        }
+
+        public async Task CreateEntry(Entry entry)
+        {
+            _tutoContext.Entry.Add(entry);
+            await _tutoContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteEntry(int id)
+        {
+            var entry = _tutoContext.Entry.FirstOrDefault(x => x.Id.Equals(id));
+            _tutoContext.Entry.Remove(entry);
+            await _tutoContext.SaveChangesAsync();
         }
     }
 }

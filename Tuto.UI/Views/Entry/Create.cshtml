@@ -1,0 +1,32 @@
+﻿@model Tuto.Data.Models.Entry
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create</h2>
+<form asp-action="create" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Category" class="control-label"></label>
+        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
+            <option value="">-- Select category --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="SeoDescription"></label>
+        <textarea asp-for="SeoDescription" rows="2" class="form-control"></textarea>
+    </div><div class="form-group">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" rows="20" class="form-control"></textarea>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-action="index" class="btn btn-secondary">Back to list</a>
+    </div>
+
+</form>
+
