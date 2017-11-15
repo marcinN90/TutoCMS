@@ -12,6 +12,8 @@ using Tuto.Data;
 using Microsoft.EntityFrameworkCore;
 using Tuto.Repo;
 using TutoRepo.TutoRepo;
+using Microsoft.AspNetCore.Identity;
+using Tuto.Data.Models;
 
 namespace Tuto.UI
 {
@@ -32,7 +34,12 @@ namespace Tuto.UI
             services.AddScoped<ITudoDataRepository, SqlTutoRepo>();
 
             services.AddDbContext<TutoContext>(options => options.UseInMemoryDatabase("FakeDb"));
-          
+
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<TutoContext>()
+                .AddDefaultTokenProviders();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +63,7 @@ namespace Tuto.UI
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseAuthentication();
 
             var context = serviceProvider.GetService<TutoContext>();
             DbInitializer.SeeDbWithFakeData(context);

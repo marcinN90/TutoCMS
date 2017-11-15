@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,9 +8,9 @@ using Tuto.Data.Models;
 
 namespace Tuto.Data
 {
-    public class TutoContext : DbContext
+    public class TutoContext : IdentityDbContext<IdentityUser>
     {
-        public TutoContext(DbContextOptions options) : base(options) { }
+        public TutoContext(DbContextOptions<TutoContext> options) : base(options) { }
 
         public DbSet<Link> Link { get; set; }
         public DbSet<Category> Category { get; set; }

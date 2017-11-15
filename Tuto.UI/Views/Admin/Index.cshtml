@@ -8,18 +8,18 @@
 <div class="col-md-3">
     <div class="list-group">
         <a asp-controller="websitedetails" asp-action="index" class="list-group-item d-flex justify-content-between align-items-center">
-            Konfiguracja
+            Configuration
         </a>
         <a  asp-controller="entry" asp-action="index" class="list-group-item d-flex justify-content-between align-items-center">
-            Wpisy
+            Entries
             <span class="badge badge-primary badge-pill">@Model.NumberofAllEntries</span>
         </a>
-        <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
-            Kategorie
+        <a asp-controller="categories" asp-action="index" class="list-group-item d-flex justify-content-between align-items-center">
+            Categories
             <span class="badge badge-primary badge-pill">@Model.NumberOfAllCategories</span>
         </a>
         <a asp-controller="link" asp-action="index" class="list-group-item d-flex justify-content-between align-items-center">
-            Linki<span class="badge badge-primary badge-pill">@Model.NumberOfAllLinks</span>
+            Links<span class="badge badge-primary badge-pill">@Model.NumberOfAllLinks</span>
         </a>
 </div>
 </div>
