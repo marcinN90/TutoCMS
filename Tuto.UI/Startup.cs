@@ -11,7 +11,6 @@ using TutoRepo;
 using Tuto.Data;
 using Microsoft.EntityFrameworkCore;
 using Tuto.Repo;
-using TutoRepo.TutoRepo;
 using Microsoft.AspNetCore.Identity;
 using Tuto.Data.Models;
 
@@ -36,9 +35,13 @@ namespace Tuto.UI
             services.AddDbContext<TutoContext>(options => options.UseInMemoryDatabase("FakeDb"));
 
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<TutoContext>()
                 .AddDefaultTokenProviders();
+
+
+            services.AddMemoryCache();
+            services.AddSession();
 
         }
 
@@ -67,6 +70,7 @@ namespace Tuto.UI
 
             var context = serviceProvider.GetService<TutoContext>();
             DbInitializer.SeeDbWithFakeData(context);
+            DbInitializer.SeedAdminUser(serviceProvider);
         }
     }
 }

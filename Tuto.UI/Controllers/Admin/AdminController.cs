@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TutoDataRepo;
 using Tuto.UI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Tuto.UI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ITudoDataRepository _repo;
