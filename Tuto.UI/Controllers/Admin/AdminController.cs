@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Tuto.UI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AdminController : Controller
     {
         private readonly ITudoDataRepository _repo;

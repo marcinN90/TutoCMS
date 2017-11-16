@@ -9,12 +9,11 @@ namespace Tuto.UI.Models
     public class LoginViewModel
     {
         [Required]
-        public string Name { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
 
         [Required]
-        [UIHint("password")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
-
-        public string ReturnUrl { get; set; }
     }
 }

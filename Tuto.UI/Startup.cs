@@ -32,7 +32,8 @@ namespace Tuto.UI
 
             services.AddScoped<ITudoDataRepository, SqlTutoRepo>();
 
-            services.AddDbContext<TutoContext>(options => options.UseInMemoryDatabase("FakeDb"));
+            services.AddDbContext<TutoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<TutoContext>(options => options.UseInMemoryDatabase("FakeDb"));
 
 
             services.AddIdentity<IdentityUser, IdentityRole>()
