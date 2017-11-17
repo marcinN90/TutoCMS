@@ -8,7 +8,7 @@ using Tuto.Data.Models;
 
 namespace Tuto.Data
 {
-    public class TutoContext : IdentityDbContext<IdentityUser>
+    public class TutoContext : IdentityDbContext<ApplicationUser>
     {
         public TutoContext(DbContextOptions<TutoContext> options) : base(options) { }
 

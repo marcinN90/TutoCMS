@@ -28,22 +28,19 @@ namespace Tuto.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
 
             services.AddScoped<ITudoDataRepository, SqlTutoRepo>();
 
-            services.AddDbContext<TutoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<TutoContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDbContext<TutoContext>(options => options.UseInMemoryDatabase("FakeDb"));
 
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<TutoContext>()
                 .AddDefaultTokenProviders();
 
-
-            services.AddMemoryCache();
-            services.AddSession();
-
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -67,7 +67,11 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
 
     public class DbInitializer
     {
-
+        public DbInitializer(TutoContext tutoContext)
+        {
+            tutoContext.Database.EnsureDeleted();
+            tutoContext.Database.EnsureCreated(); ;
+        }
         private const string adminUser = "Admin";
         private const string adminPassword = "Secret123$";
         public static void SeeDbWithFakeData(TutoContext context)
