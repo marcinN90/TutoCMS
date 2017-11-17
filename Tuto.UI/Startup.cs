@@ -67,8 +67,6 @@ namespace Tuto.UI
             app.UseAuthentication();
 
             var context = serviceProvider.GetService<TutoContext>();
-            DbInitializer.SeeDbWithFakeData(context);
-            DbInitializer.SeedAdminUser(serviceProvider);
         }
     }
 }
