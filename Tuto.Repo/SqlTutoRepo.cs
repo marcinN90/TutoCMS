@@ -38,7 +38,7 @@ namespace Tuto.Repo
 
         public Task<Entry> GetEntryById(int id)
         {
-            var entryPart = _tutoContext.Entry
+            var entryPart = _tutoContext.EntryPost
                 .Include(c => c.Category)
                 .FirstOrDefault(e => e.Id.Equals(id));
             return Task.FromResult(entryPart);
@@ -46,7 +46,7 @@ namespace Tuto.Repo
 
         public Task<List<Entry>> GetAllEntries()
         {
-            var entries = _tutoContext.Entry
+            var entries = _tutoContext.EntryPost
                 .Include(x => x.Category)
                 .ToList();
             return Task.FromResult(entries);
@@ -100,7 +100,7 @@ namespace Tuto.Repo
 
         public Task SaveEntry (Entry editedEntry)
         {
-            Entry dbEntry = _tutoContext.Entry.FirstOrDefault(x => x.Id.Equals(editedEntry.Id));
+            Entry dbEntry = _tutoContext.EntryPost.FirstOrDefault(x => x.Id.Equals(editedEntry.Id));
             dbEntry.Title = editedEntry.Title;
             dbEntry.SeoDescription = editedEntry.SeoDescription;
             dbEntry.CategoryId = editedEntry.CategoryId;
@@ -127,14 +127,14 @@ namespace Tuto.Repo
 
         public async Task CreateEntry(Entry entry)
         {
-            _tutoContext.Entry.Add(entry);
+            _tutoContext.EntryPost.Add(entry);
             await _tutoContext.SaveChangesAsync();
         }
 
         public async Task DeleteEntry(int id)
         {
-            var entry = _tutoContext.Entry.FirstOrDefault(x => x.Id.Equals(id));
-            _tutoContext.Entry.Remove(entry);
+            var entry = _tutoContext.EntryPost.FirstOrDefault(x => x.Id.Equals(id));
+            _tutoContext.EntryPost.Remove(entry);
             await _tutoContext.SaveChangesAsync();
         }
     }
