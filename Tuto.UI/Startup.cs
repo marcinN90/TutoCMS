@@ -65,8 +65,7 @@ namespace Tuto.UI
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
             app.UseAuthentication();
-
-            var context = serviceProvider.GetService<TutoContext>();
+            
         }
     }
 }
