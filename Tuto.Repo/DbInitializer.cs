@@ -68,7 +68,7 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
     public class DbInitializer
     {
         
-        private const string adminUser = "Admin";
+        private const string adminInfo = "admin@example.com";
         private const string adminPassword = "Secret123$";
         public static void SeeDbWithFakeData(TutoContext context)
         {
@@ -91,12 +91,22 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
         {
             UserManager <ApplicationUser> userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-            ApplicationUser user = await userManager.FindByIdAsync(adminUser);
-            if (user == null)
+            ApplicationUser user = await userManager.FindByEmailAsync(adminInfo);
+            user = new ApplicationUser
             {
-                user = new ApplicationUser("Admin", );
-                await userManager.CreateAsync(user, adminPassword);
+                Email = adminInfo,
+                UserName = adminInfo
+            };
+            var createdUser = await userManager.CreateAsync(user, adminPassword);
+            if (createdUser.Succeeded)
+            {
+
             }
+            else
+            {
+                throw new Exception ("Can not create user");
+            }
+            
         }
     }
 }

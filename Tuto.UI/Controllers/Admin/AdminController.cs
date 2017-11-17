@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Tuto.UI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ITudoDataRepository _repo;
@@ -17,6 +17,7 @@ namespace Tuto.UI.Controllers
         {
             _repo = repo;
         }
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             AdminViewModel adminModel = new AdminViewModel();
