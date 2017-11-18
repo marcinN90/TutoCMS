@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using TutoDataRepo;
 using Tuto.Data.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Tuto.UI.Controllers.Admin
 {
+    [Authorize]
     public class EntryController : Controller
     {
         private readonly ITudoDataRepository _repo;

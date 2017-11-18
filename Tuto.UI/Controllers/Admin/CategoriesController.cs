@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Tuto.Data;
 using Tuto.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Tuto.UI.Controllers.Admin
 {
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly TutoContext _context;
