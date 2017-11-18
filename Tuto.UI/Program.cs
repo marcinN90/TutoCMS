@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Tuto.Data;
 using TutoRepo;
+using Microsoft.AspNetCore.Identity;
+using Tuto.Data.Models;
 
 namespace Tuto.UI
 {
@@ -25,9 +27,10 @@ namespace Tuto.UI
                 try
                 {
                     var context = services.GetRequiredService<TutoContext>();
+                    var contextIdentity = services.GetRequiredService<UserManager<ApplicationUser>>();
 
                     DbInitializer.SeeDbWithFakeData(context);
-                    DbInitializer.SeedAdminUser(services);
+                    DbInitializer.SeedAdminUser(contextIdentity);
                 }
                 catch (Exception ex)
                 {

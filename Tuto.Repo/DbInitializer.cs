@@ -65,7 +65,7 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
     }
     #endregion
 
-    public class DbInitializer
+    public static class DbInitializer
     {
         
         private const string adminInfo = "admin@example.com";
@@ -87,12 +87,11 @@ M               auris eget nisl nec massa cursus facilisis eget et ipsum.Nunc ve
             context.SaveChanges();
         }
 
-        public static async void SeedAdminUser(IServiceProvider serviceProvider)
+        public static async void SeedAdminUser(UserManager<ApplicationUser> userManager)
         {
-            UserManager <ApplicationUser> userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-
-            ApplicationUser user = await userManager.FindByEmailAsync(adminInfo);
-            user = new ApplicationUser
+            //ApplicationUser user;
+            // = await userManager.FindByEmailAsync(adminInfo);
+            ApplicationUser user = new ApplicationUser
             {
                 Email = adminInfo,
                 UserName = adminInfo
