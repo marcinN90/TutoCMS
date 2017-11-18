@@ -17,6 +17,7 @@ namespace Tuto.Data
         public DbSet<Entry> EntryPost { get; set; }
         public DbSet<HomePageSettings> HomePageSettings { get; set; }
         public DbSet<WebsiteDetails> WebsiteDetails { get; set; }
+        public DbSet<Image> Image { get; set; }
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
