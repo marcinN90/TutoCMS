@@ -17,6 +17,12 @@ namespace Tuto.Repo
         {
             _tutoContext = tutoContext;
         }
+
+        public async Task <List<Image>> GetAllImages()
+        {
+            return await _tutoContext.Image.ToListAsync();
+        }
+
         public Task<List<Category>> GetAllCategories()
         {
             var categories =  _tutoContext.Category
@@ -136,6 +142,18 @@ namespace Tuto.Repo
             var entry = _tutoContext.EntryPost.FirstOrDefault(x => x.Id.Equals(id));
             _tutoContext.EntryPost.Remove(entry);
             await _tutoContext.SaveChangesAsync();
+        }
+
+        public async Task SaveUploadedImage(Image imageToSave)
+        {
+            _tutoContext.Image.Add(imageToSave);
+            await _tutoContext.SaveChangesAsync();
+        }
+
+        public async Task<Image> GetImageById(int id)
+        {
+            var image = await _tutoContext.Image.FirstOrDefaultAsync(x => x.Id.Equals(id));
+            return image;
         }
     }
 }

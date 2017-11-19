@@ -6,31 +6,53 @@ using Microsoft.AspNetCore.Mvc;
 using Tuto.Data.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Tuto.UI.Models;
+using TutoDataRepo;
 
 namespace Tuto.UI.Controllers.Admin
 {
     public class ImageController : Controller
     {
+        ITudoDataRepository _repo;
+        public ImageController(ITudoDataRepository repo)
+        {
+            _repo = repo;
+        }
         [HttpGet]
         public IActionResult Upload()
         {
             return View();
         }
         [HttpPost]
-        public Image Upload([Bind("Name")] Image image, IFormFile file)
+        public async Task<ActionResult> Upload(ImageViewModel imageUploaded)
         {
-            using (var binaryReader = file.OpenReadStream())
+            Image imageToSave = new Image();
             using (var memoryStream = new MemoryStream())
             {
-                binaryReader.CopyTo(memoryStream);
-                image.Content = memoryStream.ToArray();
+                imageToSave.Title = imageUploaded.Image.FileName;
+                imageUploaded.Image.CopyTo(memoryStream);
+                imageToSave.Content = memoryStream.ToArray();
             }
-            return image;
+            await _repo.SaveUploadedImage(imageToSave);
+
+            return RedirectToAction(nameof(Index));
         }
 
-        public ActionResult GetImage(int id)
+        public async Task<IActionResult> Index()
         {
-            return File()
+            var images = await _repo.GetAllImages();
+            return View(images);
         }
+
+        public async Task<IActionResult> ShowImage(int id)
+        {
+            var image = await _repo.GetImageById(id);
+            return File(image.Content, "image/jpg");
+        }
+
+        //public ActionResult GetImage(int id)
+        //{
+        //    return File()
+        //}
     }
 }

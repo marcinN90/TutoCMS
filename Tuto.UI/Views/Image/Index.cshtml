@@ -1,0 +1,26 @@
+﻿@model List<Tuto.Data.Models.Image>
+
+    <h2>List of images</h2>
+
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Image</th>
+            <th>ImageFromMethod</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var image in Model)
+        {
+            <tr>
+                <td>@image.Id</td>
+        <td>@image.Title</td>
+                <td><img src="data:image/jpg;base64,@(Convert.ToBase64String(image.Content))" alt="@image.Title" /></td>
+              <td> <img src="@Url.Action("ShowImage", "Image", new { id = image.Id } ) "/>  
+                <img src='<a asp-controller="image" asp-action="ShowImage" asp-route-id="@image.Id" />' /> </td>
+            </tr>
+        }
+    </tbody>
+</table>

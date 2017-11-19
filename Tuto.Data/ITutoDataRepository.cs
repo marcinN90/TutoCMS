@@ -17,10 +17,13 @@ namespace TutoDataRepo
         Task<List<Link>> GetAllLinks();
         Task<Link> GetLinkById(int id);
         Task<string> GetGoogleAnalyticsKey();
+        Task<List<Image>> GetAllImages();
+        Task<Image> GetImageById(int id);
 
         Task SaveWebsiteDetails(WebsiteDetails websiteDetails);
         Task SaveLink(Link editedLink);
         Task SaveEntry(Entry editedEntry);
+        Task SaveUploadedImage(Image imageToSave);
         Task CreateLink(Link linkToCreate);
         Task CreateEntry(Entry entry);
 
