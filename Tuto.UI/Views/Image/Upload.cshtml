@@ -1,0 +1,18 @@
+﻿@model Tuto.UI.Models.ImageViewModel
+@{
+    ViewData["Title"] = "Upload";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Upload</h2>
+<form asp-action="upload" method="post" enctype="multipart/form-data" >
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <input type="file" asp-for="Image" class="form-control" />
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary">Upload</button>
+        <a asp-action="index"class="btn btn-secondary">Back to list</a>
+    </div>
+</form>
+
