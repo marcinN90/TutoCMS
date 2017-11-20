@@ -7,9 +7,8 @@
     <div class="col-md-9">
             <h2>@Model.Title</h2>
             <p>@Html.DisplayNameFor(x => Model.LastRevisionAt) @Html.DisplayFor(x => Model.LastRevisionAt) | @Html.DisplayNameFor(x => Model.CategoryTitle) @Model.CategoryTitle</p>
-            <p>@Model.Content</p>
+            <p>@Html.Raw(@Model.Content)</p>
     </div>
-
     <div class="col-md-3">
         @Html.Partial("_LinksPartial", Model.Links)
         <hr />

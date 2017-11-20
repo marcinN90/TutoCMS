@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Tuto.Repo;
 using Microsoft.AspNetCore.Identity;
 using Tuto.Data.Models;
+using AutoMapper;
 
 namespace Tuto.UI
 {
@@ -31,7 +32,7 @@ namespace Tuto.UI
 
             services.AddScoped<ITudoDataRepository, SqlTutoRepo>();
 
-            services.AddDbContext<TutoContext>(options => 
+            services.AddDbContext<TutoContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDbContext<TutoContext>(options => options.UseInMemoryDatabase("FakeDb"));
 
@@ -52,6 +53,13 @@ namespace Tuto.UI
             });
 
             services.AddMvc();
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new AutoMapperProfileConfiguration());
+            });
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,7 +84,6 @@ namespace Tuto.UI
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            
         }
     }
 }

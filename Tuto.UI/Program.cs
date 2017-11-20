@@ -12,6 +12,7 @@ using Tuto.Data;
 using TutoRepo;
 using Microsoft.AspNetCore.Identity;
 using Tuto.Data.Models;
+using static Tuto.UI.Startup;
 
 namespace Tuto.UI
 {
@@ -28,7 +29,6 @@ namespace Tuto.UI
                 {
                     var context = services.GetRequiredService<TutoContext>();
                     var contextIdentity = services.GetRequiredService<UserManager<ApplicationUser>>();
-
                     DbInitializer.SeeDbWithFakeData(context);
                     DbInitializer.SeedAdminUser(contextIdentity);
                 }

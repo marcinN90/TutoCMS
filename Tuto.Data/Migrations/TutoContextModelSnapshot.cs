@@ -232,6 +232,20 @@ namespace Tuto.Data.Migrations
                     b.ToTable("HomePageSettings");
                 });
 
+            modelBuilder.Entity("Tuto.Data.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<byte[]>("Content");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Image");
+                });
+
             modelBuilder.Entity("Tuto.Data.Models.Link", b =>
                 {
                     b.Property<int>("Id")

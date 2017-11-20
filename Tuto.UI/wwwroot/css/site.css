@@ -34,3 +34,8 @@
         display: none;
     }
 }
+
+.img-post-content {
+    max-height:250px;
+    text-align:center;
+}

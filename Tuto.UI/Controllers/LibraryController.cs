@@ -4,15 +4,18 @@ using Microsoft.AspNetCore.Mvc;
 using TutoDataRepo;
 using Tuto.UI.Models.DTOModels;
 using Tuto.UI.Models;
+using AutoMapper;
 
 namespace Tuto.UI.Controllers
 {
     public class LibraryController : Controller
     {
         private readonly ITudoDataRepository _dataRepository;
-        public LibraryController(ITudoDataRepository dataRepository)
+        private readonly IMapper _mapper;
+        public LibraryController(ITudoDataRepository dataRepository, IMapper mapper)
         {
             _dataRepository = dataRepository;
+            _mapper = mapper;
         }
         public async Task<IActionResult> ShowEntry(int? id)
         {
@@ -32,30 +35,16 @@ namespace Tuto.UI.Controllers
             entryModel.SeoDescription = entry.SeoDescription;
 
             var links = await _dataRepository.GetAllLinks();
-            var linksDTO = new List<LinkDTO>();
-            foreach (var link in links)
-            {
-                linksDTO.Add(new LinkDTO
-                {
-                    LinkTitle = link.LinkTitle,
-                    UrlAddress = link.UrlAddress                
-                });
-            }
-            entryModel.Links = linksDTO;
+            var mappedLinks = _mapper.Map<List<LinkDTO>>(links);
+            entryModel.Links = mappedLinks;
 
             var categories = await _dataRepository.GetAllCategories();
             entryModel.Categories = new List<CategoryDTO>();
+            
             foreach (var category in categories)
             {
+                var _mappedEntries = _mapper.Map <List<EntryDTO>>(category.Entries);
                 var entries = new List<EntryDTO>();
-                foreach (var entryDetails in category.Entries)
-                {
-                    entries.Add(new EntryDTO
-                    {
-                        Id = entryDetails.Id,
-                        Title = entryDetails.Title
-                    });
-                }
 
                 entryModel.Categories.Add(new CategoryDTO
                 {
