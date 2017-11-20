@@ -8,8 +8,10 @@
             <h2>@Model.Title</h2>
             <p>@Html.DisplayNameFor(x => Model.LastRevisionAt) @Html.DisplayFor(x => Model.LastRevisionAt) | @Html.DisplayNameFor(x => Model.CategoryTitle) @Model.CategoryTitle</p>
             <p>@Model.Content</p>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/6/6e/Fiat_Panda_750_CL_%2817019290421%29.jpg" data-lightbox="image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Fiat_Panda_750_CL_%2817019290421%29.jpg" class="img-post-content mx-auto d-block"/>
+        </a>
     </div>
-
     <div class="col-md-3">
         @Html.Partial("_LinksPartial", Model.Links)
         <hr />

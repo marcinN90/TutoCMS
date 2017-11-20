@@ -5,11 +5,12 @@
     "bootstrap": "v4.0.0-beta",
     "jquery": "3.2.1",
     "jquery-validation": "1.17.0",
-    "jquery-validation-unobtrusive": "3.2.6"
+    "jquery-validation-unobtrusive": "3.2.6",
+    "lightbox2": "v2.9.0"
   },
   "resolutions": {
     "bootstrap": "v4.0.0-beta",
-    "jquery": "3.2.1",
+    "jquery": ">=1.8",
     "jquery-validation": "1.17.0"
   }
 }
