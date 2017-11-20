@@ -26,7 +26,7 @@ namespace Tuto.Repo
         public Task<List<Category>> GetAllCategories()
         {
             var categories =  _tutoContext.Category
-                .Include(e => e.Entries)
+                .Include(c => c.Entries)
                 .ToList();
             return Task.FromResult(categories);
         }

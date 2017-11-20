@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using Tuto.UI.Models;
 using TutoDataRepo;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Tuto.UI.Controllers.Admin
 {
+    [Authorize]
     public class ImageController : Controller
     {
         ITudoDataRepository _repo;
