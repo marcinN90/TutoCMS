@@ -28,7 +28,7 @@ namespace Tuto.UI.Controllers.Admin
         }
 
         // GET: HomePageSettings/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int id)
         {
             if (id == null)
             {
@@ -36,7 +36,7 @@ namespace Tuto.UI.Controllers.Admin
             }
 
             var homePageSettings = await _context.HomePageSettings
-                .SingleOrDefaultAsync(m => m.Title == id);
+                .SingleOrDefaultAsync(m => m.Id == id);
             if (homePageSettings == null)
             {
                 return NotFound();
@@ -68,14 +68,14 @@ namespace Tuto.UI.Controllers.Admin
         }
 
         // GET: HomePageSettings/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var homePageSettings = await _context.HomePageSettings.SingleOrDefaultAsync(m => m.Title == id);
+            var homePageSettings = await _context.HomePageSettings.SingleOrDefaultAsync(m => m.Id == id);
             if (homePageSettings == null)
             {
                 return NotFound();
@@ -88,9 +88,9 @@ namespace Tuto.UI.Controllers.Admin
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Title,Descritpion,SeoDescription")] HomePageSettings homePageSettings)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Descritpion,SeoDescription")] HomePageSettings homePageSettings)
         {
-            if (id != homePageSettings.Title)
+            if (id != homePageSettings.Id)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace Tuto.UI.Controllers.Admin
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HomePageSettingsExists(homePageSettings.Title))
+                    if (!HomePageSettingsExists(homePageSettings.Id))
                     {
                         return NotFound();
                     }
@@ -116,40 +116,11 @@ namespace Tuto.UI.Controllers.Admin
                 return RedirectToAction(nameof(Index));
             }
             return View(homePageSettings);
-        }
+        }        
 
-        // GET: HomePageSettings/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        private bool HomePageSettingsExists(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var homePageSettings = await _context.HomePageSettings
-                .SingleOrDefaultAsync(m => m.Title == id);
-            if (homePageSettings == null)
-            {
-                return NotFound();
-            }
-
-            return View(homePageSettings);
-        }
-
-        // POST: HomePageSettings/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var homePageSettings = await _context.HomePageSettings.SingleOrDefaultAsync(m => m.Title == id);
-            _context.HomePageSettings.Remove(homePageSettings);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool HomePageSettingsExists(string id)
-        {
-            return _context.HomePageSettings.Any(e => e.Title == id);
+            return _context.HomePageSettings.Any(e => e.Id == id);
         }
     }
 }
