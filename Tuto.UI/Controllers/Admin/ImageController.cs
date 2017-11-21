@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Tuto.UI.Controllers.Admin
 {
-    [Authorize]
     public class ImageController : Controller
     {
         ITudoDataRepository _repo;
@@ -20,11 +19,16 @@ namespace Tuto.UI.Controllers.Admin
         {
             _repo = repo;
         }
+
+        [Authorize]
         [HttpGet]
         public IActionResult Upload()
         {
             return View();
         }
+
+
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult> Upload(ImageViewModel imageUploaded)
         {
@@ -40,13 +44,15 @@ namespace Tuto.UI.Controllers.Admin
             return RedirectToAction(nameof(Index));
         }
 
+
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var images = await _repo.GetAllImages();
             return View(images);
         }
 
-        public async Task<IActionResult> ShowImage(int id)
+        public async Task<IActionResult> Show(int id)
         {
             var image = await _repo.GetImageById(id);
             return File(image.Content, "image/jpg");
